@@ -12,10 +12,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import {MatDialogModule} from "@angular/material/dialog";
+import { DialogComponent } from './components/dialog/dialog.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, DialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,7 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatSortModule,
     MatFormFieldModule,
-    
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],

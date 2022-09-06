@@ -10,20 +10,22 @@
         <fa-icon [icon]="faSearch"></fa-icon>
       </div>
   </div>
-  <table mat-table matSort [dataSource]="countries" class="mat-elevation-z8">
+  <table mat-table matSort [dataSource]="countries">
   
     <!-- Save to LS Column -->
     <ng-container matColumnDef="Save to LS">
       <th mat-header-cell *matHeaderCellDef>Save to LS</th>
-      <td mat-cell *matCellDef>
-        <input type="checkbox" />
+      <td mat-cell *matCellDef="let element">
+      <script>let ch=document.getElementById('check').Checked;
+      checked=ch;</script> 
+        <input (change)="saveToLocal(element,$event.target)" type="checkbox" id="check" [defaultChecked]="false"/>
       </td>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="Name">
+    <ng-container matColumnDef="name">
       <th mat-header-cell mat-sort-header *matHeaderCellDef>Name</th>
-      <td mat-cell *matCellDef="let element">{{ element.name.common }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
     </ng-container>
 
     <!-- alpha3Code Column -->
@@ -33,13 +35,13 @@
     </ng-container>
 
     <!-- Capital Column -->
-    <ng-container matColumnDef="Capital">
+    <ng-container matColumnDef="capital">
       <th mat-header-cell mat-sort-header *matHeaderCellDef>Capital</th>
       <td mat-cell *matCellDef="let element">{{ element.capital }}</td>
     </ng-container>
 
     <!-- Population Column -->
-    <ng-container matColumnDef="Population">
+    <ng-container matColumnDef="population">
       <th mat-header-cell mat-sort-header *matHeaderCellDef>Population</th>
       <td mat-cell *matCellDef="let element">{{ element.population }}</td>
     </ng-container>
@@ -47,8 +49,8 @@
     <!-- Border Column -->
     <ng-container matColumnDef="Borders">
       <th mat-header-cell *matHeaderCellDef>Borders</th>
-      <td mat-cell *matCellDef>
-        <button>Borders</button>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="openDialog(element.borders)">Borders</button>
       </td>
     </ng-container>
 
@@ -57,10 +59,9 @@
   </table>
 
   <mat-paginator #paginator
-      [pageSize]="10"
       [pageSizeOptions]="[10, 20, 50]"
     >
-    </mat-paginator>
+  </mat-paginator>
 </div>
 
 <!-- footer -->
