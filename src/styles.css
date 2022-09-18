@@ -1,3 +1,4 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 html,
 body {
   height: 100%;
@@ -17,38 +18,44 @@ app-root {
   align-items: center;
   width: -webkit-fill-available;
 }
-/* body > div.cdk-overlay-container > div.cdk-global-overlay-wrapper {
-  background-color: rgba(53, 53, 53, 0.943);
-  position: absolute;
-  margin-top: 15%;
-  min-width: 125px;
-  min-height: 150px;
+.mat-dialog-container > app-dialog > mat-dialog-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
-body > div.cdk-overlay-connected-position-bounding-box{
-    
-} */
 
-.mat-sort-header-container{
+.mat-sort-header-container {
   justify-content: center;
 }
 
-/* body > div.cdk-overlay-container{
-  position: fixed;
+.cdk-overlay-pane {
+  width: fit-content;
+}
 
-  top: 40%;
-  background-color: rgb(92 183 156 / 46%);
-  width: 145px;
+.mat-dialog-container
+  cdk-dialog-container
+  ng-tns-c137-25
+  ng-trigger
+  ng-trigger-dialogContainer
+  ng-star-inserted {
+  width: fit-content;
 }
-#mat-dialog-0{
-  padding: 5px;
+
+.x {
+  top: 0;
+  right: 0;
+  height: 20px;
+  line-height: 14px;
+  min-width: auto;
+  background-color: red;
+  border-color: white;
+  border-radius: 12px;
+  color: white;
+  font: bold;
+  float: right;
 }
-#mat-dialog-0 > app-dialog > mat-dialog-content{
+form {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
 }
-#mat-option-0,#mat-option-1,#mat-option-2{
-  text-align: center;
-} */
-
-

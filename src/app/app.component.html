@@ -5,20 +5,27 @@
 
 <div class="container">
   <div class="search">
-      <div class="top">
-        <input matInput placeholder="Search" (keyup)="filterData($event)">
-        <fa-icon [icon]="faSearch"></fa-icon>
-      </div>
+    <button class="add" (click)="add()">Add New Country</button>
+    <div class="top">
+      <fa-icon [icon]="faSearch"></fa-icon>
+      <input matInput placeholder="Search" (keyup)="filterData($event)" />
+    </div>
   </div>
   <table mat-table matSort [dataSource]="countries">
-  
     <!-- Save to LS Column -->
     <ng-container matColumnDef="Save to LS">
       <th mat-header-cell *matHeaderCellDef>Save to LS</th>
       <td mat-cell *matCellDef="let element">
-      <script>let ch=document.getElementById('check').Checked;
-      checked=ch;</script> 
-        <input (change)="saveToLocal(element,$event.target)" type="checkbox" id="check" [defaultChecked]="false"/>
+        <script>
+          let ch = document.getElementById("check").Checked;
+          checked = ch;
+        </script>
+        <input
+          (change)="saveToLocal(element, $event.target)"
+          type="checkbox"
+          id="check"
+          [defaultChecked]="false"
+        />
       </td>
     </ng-container>
 
@@ -58,9 +65,12 @@
     <tr mat-row *matRowDef="let row; columns: columns"></tr>
   </table>
 
-  <mat-paginator #paginator
-      [pageSizeOptions]="[10, 20, 50]"
-    >
+  <mat-paginator
+    class="mat-paginator-outer-container"
+    #paginator
+    showFirstLastButtons="true"
+    [pageSizeOptions]="[10, 20, 50]"
+  >
   </mat-paginator>
 </div>
 

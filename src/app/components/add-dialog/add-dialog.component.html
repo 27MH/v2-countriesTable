@@ -1,0 +1,53 @@
+<div>
+  <button class="x" mat-button [mat-dialog-close]="true">X</button>
+
+  <div class="form-container">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Country Name"
+        [formControl]="name"
+        required
+      />
+      <mat-error *ngIf="name.invalid">{{ getErrorMessage(name) }}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="alpha3Code"
+        [formControl]="alpha"
+        required
+        minlength="3"
+        maxlength="3"
+      />
+      <mat-hint align="end">3 letters only</mat-hint>
+      <mat-error *ngIf="alpha.invalid">{{ getErrorMessage(alpha) }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Capital" [formControl]="capital" required />
+      <mat-error *ngIf="capital.invalid">{{
+        getErrorMessage(capital)
+      }}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        placeholder="population"
+        [formControl]="population"
+        required
+      />
+      <mat-hint align="end">numbers only</mat-hint>
+      <mat-error *ngIf="population.invalid">{{
+        getErrorMessage(population)
+      }}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Borders" [formControl]="borders" />
+      <mat-hint align="end">comma separated</mat-hint>
+    </mat-form-field>
+
+    <input class="button" type="submit" (click)="onSubmit()" />
+  </div>
+</div>
