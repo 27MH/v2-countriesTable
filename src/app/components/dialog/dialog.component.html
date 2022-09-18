@@ -1,12 +1,13 @@
 <mat-dialog-content>
+  <div>
+    <button class="x" mat-button [mat-dialog-close]="true">X</button>
     <table>
-        <th>Borders</th>
-        <tr *ngFor="let city of borders">{{city}}</tr>
+      <th>Borders:</th>
+      <tr *ngFor="let city of borders">
+        -{{
+          city
+        }}
+      </tr>
     </table>
-
-    <button (click)="close()">X</button>
+  </div>
 </mat-dialog-content>
-
-
-
-    
